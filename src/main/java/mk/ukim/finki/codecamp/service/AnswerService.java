@@ -16,7 +16,7 @@ public interface AnswerService {
 
     Answer create(String answer);
 
-    Answer edit(Long questionId, String answer);
+    Answer edit(Long answerId, String answer);
 
     void delete(Long id);
 }
