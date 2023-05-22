@@ -45,7 +45,7 @@ public class Course {
         this.teacher = null;
     }
 
-    public Course(String semester, String title, ArrayList<Lecture> lectures, Quiz quiz) {
+    public Course(String semester, String title, List<Lecture> lectures, Quiz quiz) {
         this.semester = semester;
         this.title = title;
         this.lectures = lectures;
@@ -55,7 +55,7 @@ public class Course {
         this.teacher = null;
     }
 
-    public Course(String semester, String title, ArrayList<Lecture> lectures, Quiz quiz, ArrayList<User> students, User administrator, User teacher) {
+    public Course(String semester, String title, List<Lecture> lectures, Quiz quiz, List<User> students, User administrator, User teacher) {
         this.semester = semester;
         this.title = title;
         this.lectures = lectures;

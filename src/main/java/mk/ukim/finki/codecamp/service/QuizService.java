@@ -13,9 +13,9 @@ public interface QuizService {
 
     List<Quiz> findAll();
 
-    Quiz create(Long completionTime, List<Long> questionIds);
+    Quiz create(Long completionTime);
 
-    Quiz edit(Long quizId, Long completionTime, List<Long> questionIds);
+    Quiz edit(Long quizId, Long completionTime);
 
     void delete(Long id);
 }

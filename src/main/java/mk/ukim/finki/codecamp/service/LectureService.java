@@ -11,4 +11,10 @@ public interface LectureService {
     List<Lecture> findAll();
 
     List<Lecture> findLecturesByCourseId(Long courseId);
+
+    Lecture create(String title, String videoUrl, String desc);
+
+    Lecture edit(Long id, String title, String videoUrl, String desc);
+
+    void delete(Long id);
 }

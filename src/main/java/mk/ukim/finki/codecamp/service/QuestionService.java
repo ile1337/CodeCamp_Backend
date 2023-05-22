@@ -12,9 +12,9 @@ public interface QuestionService {
 
     List<Question> findAllByQuizId(Long quizId);
 
-    Question create(String question, Long points, List<Long> providedAnswersIds, Long correctAnswerId);
+    Question create(String question, Long points);
 
-    Question edit(Long questionId, String question, Long points, List<Long> providedAnswersIds, Long correctAnswerId);
+    Question edit(Long questionId, String question, Long points);
 
     void delete(Long id);
 }

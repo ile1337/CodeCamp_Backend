@@ -10,9 +10,9 @@ public interface UserService {
 
     List<User> findAll();
 
-    User register(String name, String surname, String password);
+    User register(String name, String surname);
 
-    User editAccount(Long userId, String name, String surname, String password);
+    User editAccount(Long userId, String name, String surname);
 
     void deleteAccount(Long id);
 }
