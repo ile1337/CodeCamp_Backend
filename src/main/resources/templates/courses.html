@@ -24,24 +24,9 @@
     <h1>Courses</h1>
 </div>
 <div class="courses-grid">
-    <div class="grid-item-wrapper"> <!--  iterate courses here  -->
+    <div th:each="course : ${courses}" class="grid-item-wrapper"> <!--  iterate courses here  -->
         <div class="grid-item">
-            <h1>Course</h1> <!-- Display course info here   -->
-        </div>
-    </div>
-    <div class="grid-item-wrapper"> <!--  should be deleted  -->
-        <div class="grid-item">
-            <h1>Course</h1>
-        </div>
-    </div>
-    <div class="grid-item-wrapper"> <!--  should be deleted  -->
-        <div class="grid-item">
-            <h1>Course</h1>
-        </div>
-    </div>
-    <div class="grid-item-wrapper"> <!--  should be deleted  -->
-        <div class="grid-item">
-            <h1>Course</h1>
+            <h1 th:text="${course.getTitle()}"></h1> <!-- Display course info here   -->
         </div>
     </div>
 </div>
