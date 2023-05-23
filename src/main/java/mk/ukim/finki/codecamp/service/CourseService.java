@@ -15,6 +15,8 @@ public interface CourseService {
 
     List<Course> findAllInSemester(String semester);
 
+    Course createEmpty(String semester, String title);
+
     Course create(String semester, String title, ArrayList<Long> lectureIds, Long quizId);
 
     Course edit(Long courseId, String semester, String title, ArrayList<Long> lectureIds, Long quizId);

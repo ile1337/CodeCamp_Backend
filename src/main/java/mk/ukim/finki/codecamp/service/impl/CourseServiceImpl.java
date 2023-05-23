@@ -48,6 +48,12 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public Course createEmpty(String semester, String title) {
+        Course newCourse = new Course(semester, title);
+        return this.courseRepository.save(newCourse);
+    }
+
+    @Override
     public Course create(String semester, String title, ArrayList<Long> lectureIds, Long quizId) {
         List<Lecture> lectures = this.lectureRepository.findAllById(lectureIds);
         Quiz quiz = this.quizRepository.findById(quizId).orElseThrow(InvalidArgumentException::new);
