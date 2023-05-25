@@ -76,6 +76,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public boolean isPresent(Long courseId) {
+        return this.courseRepository.findById(courseId).equals(courseId);
+    }
+
+    @Override
     public void delete(Long id) {
         this.courseRepository.deleteById(id);
     }
