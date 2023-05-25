@@ -21,6 +21,8 @@ public interface CourseService {
 
     Course edit(Long courseId, String semester, String title, ArrayList<Long> lectureIds, Long quizId);
 
+    boolean isPresent(Long courseId);
+
     void delete(Long id);
 
 }
