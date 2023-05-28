@@ -1,3 +1,4 @@
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -15,11 +16,9 @@
 
   .form {
     background-color: #fff;
-    padding: 10px;
+    padding: 25px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    align-items: center;
-    text-align: justify;
   }
 
   .form h2 {
@@ -27,26 +26,33 @@
     margin-bottom: 20px;
   }
 
-  .form a {
+  .form input[type="text"],
+  .form input[type="password"] {
     width: 100%;
-    padding: 3px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .form button {
+    width: 100%;
+    padding: 10px;
     background-color: #29317e;
     color: #fff;
     border: none;
     border-radius: 3px;
-    display: flex;
-    justify-content: center;
   }
 </style>
 <body>
 <div class="container">
   <form class="form" action="#">
-    <h2>Welcome to CodeCamp</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consectetur eros et tincidunt commodo. Nullam rutrum eu odio id viverra. Aenean convallis varius lacus, non tincidunt leo faucibus vel.</p>
-
-    <hr>
-    <a href="/courses">View courses</a>
+    <h2>Register</h2>
+    <input type="text" placeholder="Name" required>
+    <input type="text" placeholder="Surname" required>
+    <input type="text" placeholder="Username" required>
+    <input type="password" placeholder="Password" required>
+    <button type="submit">Register</button>
   </form>
 </div>
 </body>
-
