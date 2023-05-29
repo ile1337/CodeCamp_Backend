@@ -45,13 +45,16 @@
     }
 </style>
 <body>
-<div class="container">
-  <form class="login-form" action="#">
+<div class="container" xmlns:th="http://www.thymeleaf.org">
+  <form class="login-form" method="post" action="/login">
     <h2>Login</h2>
-    <input type="text" placeholder="Username" required>
-    <input type="password" placeholder="Password" required>
-    <button type="submit">Login</button>
+    <input type="text" id="username" name="username" placeholder="Username" required>
+    <input type="password" id="password" name="password" placeholder="Password" required>
+    <div th:text="${param.error}" class="text-danger"></div>
+    <button id="submit" type="submit">Login</button>
+
 
   </form>
+ <!-- <a href="/register" class="btn btn-block btn-light">Register here</a>-->
 </div>
 </body>

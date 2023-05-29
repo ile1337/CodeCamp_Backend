@@ -42,16 +42,46 @@
     border: none;
     border-radius: 3px;
   }
+  .login_btt{
+    width: 100%;
+    padding: 10px;
+    background-color: #29317e;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+  }
 </style>
 <body>
 <div class="container">
-  <form class="form" action="#">
+  <h1 th:if="${hasError}" th:text="${error}"></h1>
+  <form class="form" method="post" action="/register">
     <h2>Register</h2>
-    <input type="text" placeholder="Name" required>
-    <input type="text" placeholder="Surname" required>
-    <input type="text" placeholder="Username" required>
-    <input type="password" placeholder="Password" required>
+    <input type="text" id="username" name="username" placeholder="Username" required>
+    <input type="text"  id="surname" name="surname" placeholder="Surname" required>
+    <input type="text" id="name" name="name" placeholder="Name" required>
+    <input type="password" id="password" name="password" placeholder="Password" required>
+    <input type="password" id="repeatedPassword" name="repeatedPassword" placeholder="Repeat Password" required>
+
+    <!--
+        ROLE_STUDENT, ROLE_ADMIN, ROLE_PROFESSOR;
+     !-->
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" name="role" type="radio" id="ROLE_ADMIN" value="ROLE_ADMIN">
+      <label class="form-check-label" for="ROLE_ADMIN">ROLE_ADMIN</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" name="role" type="radio" id="ROLE_STUDENT" value="ROLE_STUDENT">
+      <label class="form-check-label" for="ROLE_STUDENT">ROLE_STUDENT</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" name="role" type="radio" id="ROLE_PROFESSOR" value="ROLE_PROFESSOR">
+      <label class="form-check-label" for="ROLE_PROFESSOR">ROLE_PROFESSOR</label>
+    </div>
+
     <button type="submit">Register</button>
   </form>
+  <div>
+  <button class="login_btt" href="/login">Already have an account? Login here!</button>
+  </div>
 </div>
 </body>

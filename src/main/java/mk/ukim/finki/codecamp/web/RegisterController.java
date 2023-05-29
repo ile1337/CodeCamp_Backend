@@ -35,7 +35,7 @@ public class RegisterController {
     }
 
     @PostMapping
-    public String register(@RequestParam Long ID,
+    public String register(@RequestParam(required = false) Long ID,
                             @RequestParam String username,
                            @RequestParam String password,
                            @RequestParam String repeatedPassword,
