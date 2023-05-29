@@ -1,6 +1,5 @@
-/*package mk.ukim.finki.codecamp.model.exceptions;
+package mk.ukim.finki.codecamp.model.exceptions;
 
 public class QuizDoesNotExistException extends RuntimeException{
-    public QuizDoesNotExistException(){ super(String.format("Quiz Does Not Exist Exception");}
+    public QuizDoesNotExistException(){ super("Quiz Does Not Exist Exception");}
 }
-*/

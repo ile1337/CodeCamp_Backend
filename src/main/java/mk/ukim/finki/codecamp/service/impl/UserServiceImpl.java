@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
 
 
+
     @Override
     public User findById(Long id) {
         return this.userRepository.findById(id).orElseThrow(() -> new NoSuchIdException(id));
@@ -50,7 +51,7 @@ public class UserServiceImpl implements UserService {
         if(this.userRepository.findByUsername(username).isPresent())
             throw new UsernameAlreadyExistsException(username);
         //User(Long id, String name, String surname, String username, String password)
-        User user = new User(id,name,surname,username,passwordEncoder.encode(password),userRole);
+        User user = new User(id,name,surname,username,password,userRole);
         return userRepository.save(user);
     }
 
