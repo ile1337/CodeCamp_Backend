@@ -40,7 +40,7 @@ jobs:
 
         with:
 
-          java-version: '8'
+          java-version: '17'
 
 
 
@@ -100,6 +100,6 @@ jobs:
 
           slot-name: 'production'
 
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_819e07e53f8641978b22b132b1649a2f }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_209424de875b4dc88fb3d964eddf2ee9 }}
 
           package: '*.jar'
