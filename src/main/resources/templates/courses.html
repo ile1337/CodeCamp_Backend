@@ -34,7 +34,8 @@
 <div class="courses-grid">
     <div th:each="course : ${courses}" class="grid-item-wrapper"> <!--  iterate courses here  -->
         <div class="grid-item">
-            <h1 th:text="${course.getTitle()}"></h1> <!-- Display course info here   -->
+            <h1 th:text="${course.getTitle()}"></h1> 
+            <img style="width: 420px; height: 220px; margin-left: 10px" th:src="@{images/courses.png}"><!-- Display course info here   -->
         </div>
     </div>
 </div>
