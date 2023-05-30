@@ -48,8 +48,8 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public Course createEmpty(String semester, String title) {
-        Course newCourse = new Course(semester, title);
+    public Course createEmpty(String semester, String title, String pictureUrl) {
+        Course newCourse = new Course(semester, title, pictureUrl);
         return this.courseRepository.save(newCourse);
     }
 
@@ -59,6 +59,15 @@ public class CourseServiceImpl implements CourseService {
         Quiz quiz = this.quizRepository.findById(quizId).orElseThrow(InvalidArgumentException::new);
 
         Course newCourse = new Course(semester, title, lectures, quiz);
+        return this.courseRepository.save(newCourse);
+    }
+
+    @Override
+    public Course editEmpty(Long courseId, String semester, String title, String pictureUrl) {
+        Course newCourse = this.courseRepository.findById(courseId).orElseThrow(() -> new NoSuchIdException(courseId));
+        newCourse.setTitle(title);
+        newCourse.setSemester(semester);
+        newCourse.setPictureUrl(pictureUrl);
         return this.courseRepository.save(newCourse);
     }
 

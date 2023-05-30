@@ -20,6 +20,8 @@ public class Course {
 
     private String title;
 
+    private String pictureUrl;
+
     @OneToMany(fetch = FetchType.EAGER)
     private List<Lecture> lectures;
 
@@ -35,9 +37,10 @@ public class Course {
     @OneToOne
     private User teacher;
 
-    public Course(String semester, String title) {
+    public Course(String semester, String title, String pictureUrl) {
         this.semester = semester;
         this.title = title;
+        this.pictureUrl = pictureUrl;
         this.lectures = new ArrayList<>();
         this.quiz = null;
         this.students = new ArrayList<>();
