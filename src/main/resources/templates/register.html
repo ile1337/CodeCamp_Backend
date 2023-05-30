@@ -8,6 +8,7 @@
   }
 
   .container {
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 70vh;
@@ -16,6 +17,9 @@
   .form {
     background-color: #fff;
     padding: 25px;
+    margin-top: 100px;
+    margin-left: 350px;
+    margin-right: 350px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
@@ -45,10 +49,14 @@
   .login_btt{
     width: 100%;
     padding: 10px;
+    margin-top: 10px;
     background-color: #29317e;
     color: #fff;
     border: none;
     border-radius: 3px;
+  }
+  .role {
+    justify-content: center;
   }
 </style>
 <body>
@@ -65,6 +73,7 @@
     <!--
         ROLE_STUDENT, ROLE_ADMIN, ROLE_PROFESSOR;
      !-->
+    <div class="role">
     <div class="form-check form-check-inline">
       <input class="form-check-input" name="role" type="radio" id="ROLE_ADMIN" value="ROLE_ADMIN">
       <label class="form-check-label" for="ROLE_ADMIN">ROLE_ADMIN</label>
@@ -77,11 +86,10 @@
       <input class="form-check-input" name="role" type="radio" id="ROLE_PROFESSOR" value="ROLE_PROFESSOR">
       <label class="form-check-label" for="ROLE_PROFESSOR">ROLE_PROFESSOR</label>
     </div>
-
+    </div>
     <button type="submit">Register</button>
-  </form>
-  <div>
+
   <button class="login_btt" href="/login">Already have an account? Login here!</button>
-  </div>
+  </form>
 </div>
 </body>
