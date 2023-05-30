@@ -26,11 +26,23 @@
         border: 5px solid gray;
         border-radius: 5px;
     }
+    button{
+        background-color: #4CAF50;
+        font-size: 16px;
+        border-radius: 4px;
+        width: 150px;
+        height: 50px;
+    }
 </style>
 <body>
 <div>
     <h1>Courses</h1>
 </div>
+<button>
+<a href="/courses/add-form" class="btn btn-block btn-dark add-course-btn">
+    Add new course
+</a>
+</button>
 <div class="courses-grid">
     <div th:each="course : ${courses}" class="grid-item-wrapper"> <!--  iterate courses here  -->
         <div class="grid-item">
