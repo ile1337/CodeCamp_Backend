@@ -37,40 +37,44 @@ public class CoursesController {
 
 
     @GetMapping("/edit-form/{id}")
-    @PreAuthorize("hasAnyRole(ROLE_ADMIN, ROLE_PROFESSOR)")
+//    @PreAuthorize("hasAnyRole(ROLE_ADMIN, ROLE_PROFESSOR)")
     public String editCoursePage(@PathVariable Long id, Model model) {
-        if (this.courseService.findById(id).equals(id)) {
-            Course course = this.courseService.findById(id);
-            List<Lecture> lectures = this.lectureService.findAll();
-            model.addAttribute("lectures", lectures);
-            model.addAttribute("course", course);
-            model.addAttribute("bodyContent", "add-course");
-            return "master-template";
-        }
-        return "redirect:/courses?error=CourseNotFound";
+        Course course = this.courseService.findById(id);
+        model.addAttribute("course", course);
+        model.addAttribute("bodyContent", "add-course");
+        return "master-template";
     }
 
     @GetMapping("/add-form")
-    @PreAuthorize("hasAnyRole(ROLE_ADMIN, ROLE_PROFESSOR)")
+//    @PreAuthorize("hasAnyRole(ROLE_ADMIN, ROLE_PROFESSOR)")
     public String addCoursePage(Model model) {
-        List<Course> courses = this.courseService.findAll();
-        List<Lecture> lectures = this.lectureService.findAll();
-        model.addAttribute("courses", courses);
-        model.addAttribute("lectures", lectures);
+//        List<Course> courses = this.courseService.findAll();
+//        List<Lecture> lectures = this.lectureService.findAll();
+//        model.addAttribute("courses", courses);
+//        model.addAttribute("lectures", lectures);
         model.addAttribute("bodyContent", "add-course");
         return "master-template";
     }
 
     @PostMapping("/add")
     public String saveProduct(
+            @RequestParam(required = false) Long id,
             @RequestParam String semester,
             @RequestParam String title,
-            @RequestParam ArrayList<Long> lectureIds,
-            @RequestParam Long quizId
+            @RequestParam String pictureurl
            ) {
 
-            this.courseService.create( semester, title, lectureIds, quizId);
+        if (id == null)
+            this.courseService.createEmpty(semester, title, pictureurl);
+        else
+            this.courseService.editEmpty(id, semester, title, pictureurl);
 
+        return "redirect:/courses";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteCourse(@PathVariable Long id) {
+        this.courseService.delete(id);
         return "redirect:/courses";
     }
 

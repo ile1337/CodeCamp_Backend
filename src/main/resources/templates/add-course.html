@@ -1,0 +1,26 @@
+<body>
+<div class="container">
+    <form action="/courses/add" method="post" style="width: 40%; margin: 20px auto">
+        <h2 th:if="${course == null}" style="margin-bottom: 20px">Create New Course:</h2>
+        <h2 th:if="${course != null}" style="margin-bottom: 20px" th:text="'Edit Course ' + ${course.getTitle()} + ':'"></h2>
+        <input id="id" name="id" th:value="(${course} != null ? ${course.getId()} : '')" type="hidden">
+        <div style="margin: 20px 0" class="form-group">
+            <label>Course Title</label>
+            <input th:value="${course} != null ? ${course.getTitle()} : ''" name="title" type="text" class="form-control" placeholder="Enter Course Title">
+        </div>
+        <div style="margin: 20px 0" class="form-group">
+            <label>Semester</label> <br/>
+            <select name="semester">
+                <option></option>
+                <option th:selected="${course} != null and ${course.getSemester()} == 'Winter'">Winter</option>
+                <option th:selected="${course} != null and ${course.getSemester()} == 'Summer'">Summer</option>
+            </select>
+        </div>
+        <div style="margin: 20px 0" class="form-group">
+            <label>Course Image</label>
+            <input th:value="${course} != null ? ${course.getPictureUrl()} : ''" name="pictureurl" type="text" class="form-control"  placeholder="Enter Course Image URL">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
