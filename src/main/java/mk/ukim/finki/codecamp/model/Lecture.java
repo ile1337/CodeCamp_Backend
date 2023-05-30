@@ -1,9 +1,6 @@
 package mk.ukim.finki.codecamp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -16,8 +13,10 @@ public class Lecture {
 
     private String title;
 
+    @Column(length = 500)
     private String videoUrl;
 
+    @Column(length = 500)
     private String description;
 
     public Lecture(String title, String videoUrl, String description) {

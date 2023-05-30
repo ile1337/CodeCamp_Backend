@@ -1,6 +1,7 @@
 package mk.ukim.finki.codecamp.service;
 
 import mk.ukim.finki.codecamp.model.Course;
+import mk.ukim.finki.codecamp.model.Lecture;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,8 @@ public interface CourseService {
     Course editEmpty(Long courseId, String semester, String title, String pictureUrl);
 
     Course edit(Long courseId, String semester, String title, ArrayList<Long> lectureIds, Long quizId);
+
+    void addLectureToCourse(Long courseId, Lecture lecture);
 
     boolean isPresent(Long courseId);
 

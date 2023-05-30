@@ -1,0 +1,23 @@
+<body>
+<div class="courses-grid container">
+    <div style="width: 70%; margin: 40px auto">
+        <div style="margin-bottom: 30px">
+            <form style="display: inline-block" method="get" th:action="@{'/courses/{courseId}/lecture/{lectureId}/previous' (courseId=${courseId}, lectureId=${lectureNum})}">
+                <button th:disabled="${!canPrevious}" type="submit" class="mx-3 btn btn-success">Previous Lecture</button>
+            </form>
+            <form style="display: inline-block" method="get" th:action="@{'/courses/{courseId}/lecture/{lectureId}/next' (courseId=${courseId}, lectureId=${lectureNum})}">
+                <button th:disabled="${!canNext}" type="submit" class="mx-3 btn btn-success">Next Lecture</button>
+            </form>
+        </div>
+        <div style="margin-bottom: 15px">
+            <iframe width="560" height="315" th:src="${lecture.getVideoUrl()}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div style="margin-bottom: 10px">
+            <h3 class="card-title" th:text="${lectureNum} + '. ' + ${lecture.getTitle()}"></h3>
+        </div>
+        <div>
+            <p class="card-text" th:text="${lecture.getDescription()}"></p>
+        </div>
+    </div>
+</div>
+</body>

@@ -71,5 +71,9 @@ public class Course {
     public Course() {
     }
 
+    public void addLecture(Lecture lecture) {
+        this.lectures.add(lecture);
+    }
+
 
 }
