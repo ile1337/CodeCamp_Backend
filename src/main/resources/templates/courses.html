@@ -1,4 +1,4 @@
-<style>
+<style xmlns:sec="http://www.w3.org/1999/xhtml">
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -32,20 +32,24 @@
     <div style="width: 100%">
         <h2 style="margin: 50px 20px">Courses</h2>
     </div>
-    <div style="display: block; width: 100%">
+    <div th:if="${user} != null and ${user.getRole().name.equals('ROLE_ADMIN')}" style="display: block; width: 100%">
         <a style="margin: 0 20px 50px" href="/courses/add-form" class="btn btn-primary">Create New Course</a>
     </div>
     <div class="row" style="width: 100%">
         <div th:each="course : ${courses}" style="margin-top: 20px" class="col-md-12 col-lg-6 col-xl-3">
-            <div class="card" style="margin: 0 auto; width: 18rem;">
-                <img class="card-img-top" style="height: 23vh" th:src="${course.getPictureUrl()}" alt="Course Image">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${course.getTitle()}"></h5>
-                    <p class="card-text" th:text="'Semester: ' + ${course.getSemester()}"></p>
-                    <a th:href="@{'/courses/edit-form/{id}' (id=${course.getId()})}" class="btn btn-outline-success">Edit <img src="images/edit.png" width="20"/></a>
-                    <a th:href="@{'/courses/delete/{id}' (id=${course.getId()})}" class="btn btn-outline-danger">Delete  <img src="images/delete.png" width="20"/></a>
+            <a th:href="@{'/courses/{id}/lectures' (id=${course.getId()})}" style="color: black; text-decoration: none">
+                <div class="card" style="margin: 0 auto; width: 18rem;">
+                    <img class="card-img-top" style="height: 23vh" th:src="${course.getPictureUrl()}" alt="Course Image">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${course.getTitle()}"></h5>
+                        <p class="card-text" th:text="'Semester: ' + ${course.getSemester()}"></p>
+                        <div style="margin-top: 20px" th:if="${user} != null and ${user.getRole().name.equals('ROLE_ADMIN')}" >
+                            <a th:href="@{'/courses/edit-form/{id}' (id=${course.getId()})}" class="btn btn-outline-success">Edit <img src="images/edit.png" width="20"/></a>
+                            <a th:href="@{'/courses/delete/{id}' (id=${course.getId()})}" class="btn btn-outline-danger">Delete  <img src="images/delete.png" width="20"/></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>

@@ -85,6 +85,13 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+    public void addLectureToCourse(Long courseId, Lecture lecture) {
+        Course newCourse = this.courseRepository.findById(courseId).orElseThrow(() -> new NoSuchIdException(courseId));
+        newCourse.addLecture(lecture);
+        this.courseRepository.save(newCourse);
+    }
+
+    @Override
     public boolean isPresent(Long courseId) {
         return this.courseRepository.findById(courseId).equals(courseId);
     }
